@@ -7,22 +7,24 @@ import MainPage from './components/login/MainPage'
 import Add from './components/todo/Add'
 import Loading from './components/UI/Loading'
 import { useSelector } from 'react-redux'
-import Modal from './components/UI/Modal'
 function App() {
-  const loading = useSelector((state)=> state.ui.isLoading)
+	const loading = useSelector((state) => state.ui.isLoading)
 	return (
 		<div className='App'>
-         {loading && <Loading/>} 
-		 {/* <Modal/> */}
+			{loading && <Loading />}
+			{/* <Modal/> */}
 			<Routes>
-        <Route path='/'  element={<Navigate replace to={'/MainPage'}/>}/>
-    
-        <Route path='/MainPage' element={	<MainPage />}/>
-				
-			<Route path='/Login' replace element={<Login/>}/>
-      
-      <Route path='/Trello'  element={<Add/>}/>
-<Route path='*' element={<Error/>}/>
+				<Route
+					path='/'
+					element={<Navigate replace to={'/MainPage'} />}
+				/>
+
+				<Route path='/MainPage' element={<MainPage />} />
+
+				<Route path='/Login' replace element={<Login />} />
+
+				<Route path='/Trello' element={<Add />} />
+				<Route path='*' element={<Error />} />
 			</Routes>
 		</div>
 	)
