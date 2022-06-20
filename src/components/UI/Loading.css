@@ -1,0 +1,49 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300);
+
+html, body, p {
+  margin: 0;
+  padding: 0;
+}
+
+.what {
+  margin: 0 auto;
+  width: 700px;
+  text-align: center;
+  padding: 40px 0 40px 0;
+  font-size: 72px;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 300;
+  color: #858BB2;
+}
+
+.oh-yes {
+  font-size: 36px;
+}
+
+.row {
+  width: 100%;
+  background-color: #f0f0f0;
+}
+
+.loader {
+  width: 0px;
+  height: 8px;
+  background: linear-gradient(to left, #6E00FF, rgba(255,255,255,.0));
+  animation: speed 3s ease-in forwards, via 2.5s ease-out forwards;
+}
+
+.r {
+  animation: speed 3s cubic-bezier(1,.01,0,1) infinite, via 2s ease-out infinite;
+  background: linear-gradient(to left, #00FFBA,rgba(255,255,255,.0));
+}
+
+@keyframes speed {
+  0% { width: 0px; }
+  100% { width: 100%; }
+}
+
+@keyframes via {
+  0% { opacity: 1; }
+  50% {opacity: 1; }
+  100% { opacity: 0; }
+}

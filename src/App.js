@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
-
+import './App.css'
+import Error from './components/UI/Error'
+import { Navigate, Routes } from 'react-router-dom'
+import { Route } from 'react-router-dom'
+import Login from './components/login/login'
+import MainPage from './components/login/MainPage'
+import Add from './components/todo/Add'
+import Loading from './components/UI/Loading'
+import { useSelector } from 'react-redux'
+import Modal from './components/UI/Modal'
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const loading = useSelector((state)=> state.ui.isLoading)
+	return (
+		<div className='App'>
+         {loading && <Loading/>} 
+		 {/* <Modal/> */}
+			<Routes>
+        <Route path='/'  element={<Navigate replace to={'/MainPage'}/>}/>
+    
+        <Route path='/MainPage' element={	<MainPage />}/>
+				
+			<Route path='/Login' replace element={<Login/>}/>
+      
+      <Route path='/Trello'  element={<Add/>}/>
+<Route path='*' element={<Error/>}/>
+			</Routes>
+		</div>
+	)
 }
 
-export default App;
+export default App
